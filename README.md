@@ -1,4 +1,4 @@
-# medicalemergency
+# MedicalEmergency
 
 A new Flutter project.
 
