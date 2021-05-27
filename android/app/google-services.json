@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "851749869345",
+    "project_id": "medical-emergency-df32f",
+    "storage_bucket": "medical-emergency-df32f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851749869345:android:4e8975b2a11b7135cad060",
+        "android_client_info": {
+          "package_name": "com.example.medicalemergency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851749869345-okdbgoon7sdqc85ls8vb0d1iqphrbjsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6wFcG7sv1jPjouHTBfiiXmrhqiqp15qY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "851749869345-okdbgoon7sdqc85ls8vb0d1iqphrbjsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
