@@ -43,7 +43,7 @@ class _MainDriverScreenState extends State<MainDriverScreen>
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.money), label: "Earn"),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
           BottomNavigationBarItem(
               icon: Icon(Icons.rate_review_outlined), label: "Rating"),
           BottomNavigationBarItem(
