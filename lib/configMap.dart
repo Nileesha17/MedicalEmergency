@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 //My own api key
 //String mapKey = "AIzaSyB6wFcG7sv1jPjouHTBfiiXmrhqiqp15qY";
 
@@ -6,3 +8,6 @@
 
 //Team provided api key
 String mapKey = "AIzaSyBZSYw_PQID7Zp1fV5zgJOXbSyBiNxqdH0";
+
+//firebase user
+User currentFirrebaseuser;

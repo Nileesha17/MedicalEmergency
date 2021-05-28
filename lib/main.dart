@@ -2,9 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:medicalemergency/DataHandler/appData.dart';
-import 'package:medicalemergency/Screens/loginScreen.dart';
-import 'package:medicalemergency/Screens/mainScreen.dart';
-import 'package:medicalemergency/Screens/registrationScreen.dart';
+import 'package:medicalemergency/Screens/inrtoScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -15,6 +13,9 @@ void main() async {
 
 DatabaseReference userRef =
     FirebaseDatabase.instance.reference().child("users");
+
+DatabaseReference driverRef =
+    FirebaseDatabase.instance.reference().child("drivers");
 
 class MyApp extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: LoginScreen(),
+        home: IntroScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );

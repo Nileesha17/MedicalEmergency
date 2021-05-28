@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:medicalemergency/Screens/loginScreen.dart';
-import 'package:medicalemergency/Screens/mainScreen.dart';
+import 'package:medicalemergency/DriverApp/Screens/driverAndVehicalDetails.dart';
+import 'package:medicalemergency/DriverApp/Screens/loginScreen.dart';
 import 'package:medicalemergency/Widgets/progressDialog.dart';
 import 'package:medicalemergency/main.dart';
+import 'package:medicalemergency/configMap.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationDriverScreen extends StatelessWidget {
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController phoneTextEditingController = TextEditingController();
@@ -27,16 +28,13 @@ class RegistrationScreen extends StatelessWidget {
               ),
               Image(
                 image: AssetImage(
-                  "images/amblogo.png",
+                  "images/driverlogo.png",
                 ),
                 width: 250.0,
                 height: 250.0,
               ),
-              SizedBox(
-                height: 20.0,
-              ),
               Text(
-                'Register as Patient',
+                'Register as Driver',
                 style: TextStyle(fontSize: 25.0, fontFamily: "Brand-Bold"),
               ),
               SizedBox(
@@ -152,7 +150,7 @@ class RegistrationScreen extends StatelessWidget {
                           registerNewUser(context);
                         }
                       },
-                      color: Colors.red[900],
+                      color: Colors.green[900],
                       textColor: Colors.white,
                       child: Container(
                         height: 50.0,
@@ -178,7 +176,7 @@ class RegistrationScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginScreen(),
+                        builder: (context) => LoginDriverScreen(),
                       ),
                     );
                   },
@@ -225,12 +223,14 @@ class RegistrationScreen extends StatelessWidget {
         "phone": phoneTextEditingController.text.trim(),
       };
 
-      userRef.child(firebaseUser.uid).set(userDataMap);
-      displayToastMessage("Account has been created", context);
+      driverRef.child(firebaseUser.uid).set(userDataMap);
+      //assigning it to global firebase user
+      currentFirrebaseuser = firebaseUser;
+
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => MainScreen(),
+          builder: (context) => DriverAndVehicleInfo(),
         ),
       );
     } else {

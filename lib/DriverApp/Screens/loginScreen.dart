@@ -3,12 +3,12 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:medicalemergency/Screens/mainScreen.dart';
-import 'package:medicalemergency/Screens/registrationScreen.dart';
+import 'package:medicalemergency/DriverApp/Screens/mainScreen.dart';
+import 'package:medicalemergency/DriverApp/Screens/registrationScreen.dart';
 import 'package:medicalemergency/Widgets/progressDialog.dart';
 import 'package:medicalemergency/main.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginDriverScreen extends StatelessWidget {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
 
@@ -27,16 +27,16 @@ class LoginScreen extends StatelessWidget {
               ),
               Image(
                 image: AssetImage(
-                  "images/amblogo.png",
+                  "images/driverlogo.png",
                 ),
                 width: 250.0,
                 height: 250.0,
               ),
               SizedBox(
-                height: 20.0,
+                height: 5.0,
               ),
               Text(
-                'SignIn as Patient',
+                'SignIn as Driver',
                 style: TextStyle(fontSize: 25.0, fontFamily: "Brand-Bold"),
               ),
               SizedBox(
@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                           loginAndAuthenticateUser(context);
                         }
                       },
-                      color: Colors.red[900],
+                      color: Colors.green[900],
                       textColor: Colors.white,
                       child: Container(
                         height: 50.0,
@@ -118,19 +118,19 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RegistrationScreen(),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "Dont have an account? SignUp",
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                  ))
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegistrationDriverScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  "Dont have an account? SignUp",
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                ),
+              ),
             ],
           ),
         ),
@@ -161,12 +161,12 @@ class LoginScreen extends StatelessWidget {
         .user;
 
     if (firebaseUser != null) {
-      userRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
+      driverRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
         if (snap.value != null) {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MainScreen(),
+              builder: (context) => MainDriverScreen(),
             ),
           );
           displayToastMessage("Login Successful", context);
