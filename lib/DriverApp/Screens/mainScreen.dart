@@ -14,6 +14,14 @@ class MainDriverScreen extends StatefulWidget {
 class _MainDriverScreenState extends State<MainDriverScreen>
     with SingleTickerProviderStateMixin {
   TabController tabController;
+  int selectedIndex = 0;
+
+  void onItemClicked(int index) {
+    setState(() {
+      selectedIndex = index;
+      tabController.index = selectedIndex;
+    });
+  }
 
   @override
   void initState() {
@@ -32,6 +40,7 @@ class _MainDriverScreenState extends State<MainDriverScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: TabBarView(
+        physics: NeverScrollableScrollPhysics(),
         controller: tabController,
         children: [
           HomeTabPage(),
@@ -50,10 +59,12 @@ class _MainDriverScreenState extends State<MainDriverScreen>
               icon: Icon(Icons.perm_identity), label: "Profile"),
         ],
         unselectedItemColor: Colors.black54,
-        selectedItemColor: Colors.green[900],
+        selectedItemColor: Colors.orange[900],
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: TextStyle(fontSize: 12.0),
         showUnselectedLabels: true,
+        currentIndex: selectedIndex,
+        onTap: onItemClicked,
       ),
     );
   }

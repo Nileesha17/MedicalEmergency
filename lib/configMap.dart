@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:geolocator/geolocator.dart';
 
 //My own api key
 //String mapKey = "AIzaSyB6wFcG7sv1jPjouHTBfiiXmrhqiqp15qY";
@@ -11,3 +14,6 @@ String mapKey = "AIzaSyBZSYw_PQID7Zp1fV5zgJOXbSyBiNxqdH0";
 
 //firebase user
 User currentFirrebaseuser;
+
+//for driver current position
+StreamSubscription<Position> homeTabPageStreamSubscription;

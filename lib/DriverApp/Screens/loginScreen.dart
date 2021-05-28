@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:medicalemergency/DriverApp/Screens/mainScreen.dart';
 import 'package:medicalemergency/DriverApp/Screens/registrationScreen.dart';
 import 'package:medicalemergency/Widgets/progressDialog.dart';
+import 'package:medicalemergency/configMap.dart';
 import 'package:medicalemergency/main.dart';
 
 class LoginDriverScreen extends StatelessWidget {
@@ -163,6 +164,7 @@ class LoginDriverScreen extends StatelessWidget {
     if (firebaseUser != null) {
       driverRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
         if (snap.value != null) {
+          currentFirrebaseuser = firebaseUser;
           Navigator.push(
             context,
             MaterialPageRoute(
