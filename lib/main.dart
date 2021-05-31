@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:medicalemergency/DataHandler/appData.dart';
 import 'package:medicalemergency/Screens/inrtoScreen.dart';
 import 'package:medicalemergency/configMap.dart';
+import 'package:medicalemergency/splashscreen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: IntroScreen(),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
