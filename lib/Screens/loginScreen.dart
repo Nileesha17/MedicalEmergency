@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Image(
                 image: AssetImage(
-                  "images/amblogo.png",
+                  "images/man.png",
                 ),
                 width: 250.0,
                 height: 250.0,
@@ -54,6 +54,7 @@ class LoginScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
+                          color: Colors.red[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -74,6 +75,7 @@ class LoginScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.red[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -126,11 +128,40 @@ class LoginScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
-                    "Dont have an account? SignUp",
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                  ))
+                  child: new Container(
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+
+
+                        Align(
+                            child: Text(
+                              "Dont have an account?",
+                              style:
+                              TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                            )
+                        ),
+
+
+                        Align(
+                            child: Text(
+                              " SignUp",
+                              style:
+                              TextStyle(fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                              color: Colors.red[900],
+                                decoration: TextDecoration.underline,)
+                              ,
+                            )
+                        ),
+
+
+                      ],
+                    ),
+                  ),
+
+              )
             ],
           ),
         ),

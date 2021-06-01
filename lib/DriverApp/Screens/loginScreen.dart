@@ -28,7 +28,7 @@ class LoginDriverScreen extends StatelessWidget {
               ),
               Image(
                 image: AssetImage(
-                  "images/driverlogo.png",
+                  "images/driver.png",
                 ),
                 width: 250.0,
                 height: 250.0,
@@ -55,7 +55,7 @@ class LoginDriverScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
-                        ),
+                       color: Colors.green[900] ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
                           fontSize: 16.0,
@@ -75,6 +75,7 @@ class LoginDriverScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.green[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -127,9 +128,37 @@ class LoginDriverScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text(
-                  "Dont have an account? SignUp",
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                child: new Container(
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+
+
+                      Align(
+                          child: Text(
+                            "Do not have an account? ",
+                            style:
+                            TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                          )
+                      ),
+
+
+                      Align(
+                          child: Text(
+                            "SignUp",
+                            style:
+                            TextStyle(fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green[900],
+                              decoration: TextDecoration.underline,)
+                            ,
+                          )
+                      ),
+
+
+                    ],
+                  ),
                 ),
               ),
             ],
