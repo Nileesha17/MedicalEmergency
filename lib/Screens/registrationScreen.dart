@@ -27,7 +27,7 @@ class RegistrationScreen extends StatelessWidget {
               ),
               Image(
                 image: AssetImage(
-                  "images/amblogo.png",
+                  "images/man.png",
                 ),
                 width: 250.0,
                 height: 250.0,
@@ -54,6 +54,7 @@ class RegistrationScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.red[900]
                         ),
                         hintStyle:
                             TextStyle(color: Colors.grey, fontSize: 10.0),
@@ -74,11 +75,13 @@ class RegistrationScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.red[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
                           fontSize: 14.0,
                           fontWeight: FontWeight.w500,
+
                         ),
                       ),
                       style: TextStyle(
@@ -96,6 +99,7 @@ class RegistrationScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.red[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -118,6 +122,7 @@ class RegistrationScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.red[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -182,11 +187,39 @@ class RegistrationScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
-                    "Already have an account? SignIn",
-                    style:
+
+                child: new Container(
+              child: new Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+
+
+                  Align(
+                      child: Text(
+                        "Already have an account? ",
+                        style:
                         TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                  ))
+                      )
+                  ),
+
+
+                  Align(
+                      child: Text(
+                        "SignIn",
+                        style:
+                        TextStyle(fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red[900],
+                          decoration: TextDecoration.underline,)
+                        ,
+                      )
+                  ),
+
+
+                ],
+              ),
+        ),)
             ],
           ),
         ),
