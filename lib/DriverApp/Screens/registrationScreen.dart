@@ -28,7 +28,7 @@ class RegistrationDriverScreen extends StatelessWidget {
               ),
               Image(
                 image: AssetImage(
-                  "images/driverlogo.png",
+                  "images/driver.png",
                 ),
                 width: 250.0,
                 height: 250.0,
@@ -52,6 +52,7 @@ class RegistrationDriverScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.green[900]
                         ),
                         hintStyle:
                             TextStyle(color: Colors.grey, fontSize: 10.0),
@@ -72,6 +73,7 @@ class RegistrationDriverScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.green[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -94,6 +96,7 @@ class RegistrationDriverScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.green[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -116,6 +119,7 @@ class RegistrationDriverScreen extends StatelessWidget {
                         labelStyle: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
+                            color: Colors.green[900]
                         ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
@@ -180,11 +184,39 @@ class RegistrationDriverScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text(
-                    "Already have an account? SignIn",
-                    style:
-                        TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-                  ))
+                child: new Container(
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+
+
+                      Align(
+                          child: Text(
+                            "Already have an account? ",
+                            style:
+                            TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                          )
+                      ),
+
+
+                      Align(
+                          child: Text(
+                            "SignIn",
+                            style:
+                            TextStyle(fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green[900],
+                              decoration: TextDecoration.underline,)
+                            ,
+                          )
+
+                      ),
+
+
+                    ],
+                  ),
+                ),)
             ],
           ),
         ),
