@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:medicalemergency/Screens/loginphoneScreen.dart';
 import 'package:medicalemergency/Screens/mainScreen.dart';
 import 'package:medicalemergency/Screens/registrationScreen.dart';
 import 'package:medicalemergency/Widgets/progressDialog.dart';
@@ -15,6 +16,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Medical Emergency'),
+        backgroundColor: Colors.red[900],
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
@@ -29,8 +34,8 @@ class LoginScreen extends StatelessWidget {
                 image: AssetImage(
                   "images/man.png",
                 ),
-                width: 250.0,
-                height: 250.0,
+                width: 200.0,
+                height: 200.0,
               ),
               SizedBox(
                 height: 20.0,
@@ -115,10 +120,41 @@ class LoginScreen extends StatelessWidget {
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(24.0),
                       ),
-                    )
-                  ],
+                    ),
+
+                 SizedBox(height: 20,),
+                 RaisedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPhoneScreen(),
+                      ),
+                    );
+
+        },
+          color: Colors.green[900],
+          textColor: Colors.white,
+          child: Container(
+            height: 50.0,
+            child: Center(
+              child: Text(
+                "Log In through Phone",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontFamily: "Brand-Bold",
                 ),
               ),
+            ),
+          ),
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(24.0),
+          )
+                 )  ],
+                ),
+              ),
+
+
               FlatButton(
                   onPressed: () {
                     Navigator.push(

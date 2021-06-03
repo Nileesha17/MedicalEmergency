@@ -15,6 +15,10 @@ class RegistrationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Medical Emergency'),
+        backgroundColor: Colors.red[900],
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
