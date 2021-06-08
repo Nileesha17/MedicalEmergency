@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:medicalemergency/DriverApp/Screens/mainScreen.dart';
 import 'package:medicalemergency/DriverApp/Screens/registrationScreen.dart';
+import 'package:medicalemergency/Screens/loginphoneScreen.dart';
+import 'package:medicalemergency/Screens/mainScreen.dart';
 import 'package:medicalemergency/Widgets/progressDialog.dart';
 import 'package:medicalemergency/configMap.dart';
 import 'package:medicalemergency/main.dart';
@@ -16,6 +18,10 @@ class LoginDriverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Medical Emergency'),
+        backgroundColor: Colors.red[900],
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
@@ -30,14 +36,14 @@ class LoginDriverScreen extends StatelessWidget {
                 image: AssetImage(
                   "images/driver.png",
                 ),
-                width: 250.0,
-                height: 250.0,
+                width: 200.0,
+                height: 200.0,
               ),
               SizedBox(
-                height: 5.0,
+                height: 20.0,
               ),
               Text(
-                'SignIn as Driver',
+                'SignIn as Patient',
                 style: TextStyle(fontSize: 25.0, fontFamily: "Brand-Bold"),
               ),
               SizedBox(
@@ -53,9 +59,10 @@ class LoginDriverScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                       color: Colors.green[900] ),
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green[900]
+                        ),
                         hintStyle: TextStyle(
                           color: Colors.grey,
                           fontSize: 16.0,
@@ -73,8 +80,8 @@ class LoginDriverScreen extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
                             color: Colors.green[900]
                         ),
                         hintStyle: TextStyle(
@@ -115,10 +122,42 @@ class LoginDriverScreen extends StatelessWidget {
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(24.0),
                       ),
-                    )
-                  ],
+                    ),
+
+                    SizedBox(height: 20,),
+                    RaisedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginPhoneScreen
+                                (),
+                            ),
+                          );
+
+                        },
+                        color: Colors.red[900],
+                        textColor: Colors.white,
+                        child: Container(
+                          height: 50.0,
+                          child: Center(
+                            child: Text(
+                              "Log In through Phone",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontFamily: "Brand-Bold",
+                              ),
+                            ),
+                          ),
+                        ),
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(24.0),
+                        )
+                    )  ],
                 ),
               ),
+
+
               FlatButton(
                 onPressed: () {
                   Navigator.push(
@@ -137,7 +176,7 @@ class LoginDriverScreen extends StatelessWidget {
 
                       Align(
                           child: Text(
-                            "Do not have an account? ",
+                            "Dont have an account?",
                             style:
                             TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                           )
@@ -146,7 +185,7 @@ class LoginDriverScreen extends StatelessWidget {
 
                       Align(
                           child: Text(
-                            "SignUp",
+                            " SignUp",
                             style:
                             TextStyle(fontSize: 18.0,
                               fontWeight: FontWeight.bold,
@@ -160,7 +199,8 @@ class LoginDriverScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+
+              )
             ],
           ),
         ),
@@ -181,23 +221,22 @@ class LoginDriverScreen extends StatelessWidget {
         });
 
     final User firebaseUser = (await _firebaseAuth
-            .signInWithEmailAndPassword(
-                email: emailTextEditingController.text,
-                password: passwordTextEditingController.text)
-            .catchError((errMsg) {
+        .signInWithEmailAndPassword(
+        email: emailTextEditingController.text,
+        password: passwordTextEditingController.text)
+        .catchError((errMsg) {
       Navigator.pop(context);
       displayToastMessage("Error" + errMsg.toString(), context);
     }))
         .user;
 
     if (firebaseUser != null) {
-      driverRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
+      userRef.child(firebaseUser.uid).once().then((DataSnapshot snap) {
         if (snap.value != null) {
-          currentFirrebaseuser = firebaseUser;
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => MainDriverScreen(),
+              builder: (context) => MainScreen(),
             ),
           );
           displayToastMessage("Login Successful", context);

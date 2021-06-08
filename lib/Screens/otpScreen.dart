@@ -24,7 +24,12 @@ class _OTPScreenState extends State<OTPScreen> {
       color: const Color.fromRGBO(153, 0, 0, 1),
     ),
   );
-
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _verifyPhone();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,10 +120,5 @@ class _OTPScreenState extends State<OTPScreen> {
         },
         timeout: Duration(seconds: 120));
   }
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _verifyPhone();
-  }
+
 }
