@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(Duration(seconds: 5),(){
+    Future.delayed(Duration(seconds:10),(){
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>IntroScreen()));
     });
     super.initState();
@@ -31,7 +31,13 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 300, width:300, child: Lottie.asset("images/ambulance.json"),)
+                SizedBox(height: 300, width:300,
+                  child: Lottie.asset(
+                    'assets/1631-healthtap-spinner.json',
+                    repeat: true,
+                    reverse: true,
+                    animate: true,
+                  ),)
               ],
 
             )
